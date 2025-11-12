@@ -14,5 +14,13 @@ app.use(helmet())
 
 app.use(morgan('dev'));
 app.use(cors({
+    origin: (process.env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean) || '*',
+    credentials: true
 }))
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/health', (req, res) => {
+    res.send('Doctor Consultation Backend is running');
+});
