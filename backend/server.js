@@ -22,5 +22,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/health', (req, res) => {
-    res.send('Doctor Consultation Backend is running');
+    res.ok({time : new Date().toISOString()},'OK');
+}); 
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
