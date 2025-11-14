@@ -22,8 +22,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/health', (req, res) => {
-    res.ok({time : new Date().toISOString()},'OK');
-}); 
+    res.status(200).json({
+        status: "OK",
+        time: new Date().toISOString()
+    });
+});
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
