@@ -1,11 +1,12 @@
-import { Header } from "@/components/ui/landing/Header";
+"use client";
+import Header from "@/components/ui/landing/Header";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { use, useEffect } from "react";
 
 export default function Home() {
   const user = {
-    type: 'doctor' // Possible values: 'doctor', 'patient', or null
+    type: 'patient' // Possible values: 'doctor', 'patient', or null
   };
   const router = useRouter();
 
